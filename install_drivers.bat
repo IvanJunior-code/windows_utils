@@ -12,4 +12,6 @@ if %errorLevel% neq 0 (
 :: Adiciona e instala os drivers
 @echo on
 for /r %%f in (*.inf) do pnputil.exe /add-driver "%%f" /install
+for /r %%f in (*.msi) do start /wait msiexec /i "%%f" /quiet /qn /norestart
+echo FINALIZADO
 pause
